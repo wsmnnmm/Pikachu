@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+</head>
+
+<body>
+    <style id="demo"></style>
+    <div id="demo2"></div>
+    <style>
+        #demo {
+            display: none;
+        }
+
+        #demo2 {
+            position: fixed;
+            height: 50vh;
+            top: 0;
+            left: 0px;
+            width: 100%;
+            border: 5px solid #ccc;
+            padding: 10px;
+            background: white;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+
+        #demo2::-webkit-scrollbar {
+            display: none;
+        }
+
+        #html {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+        }
+    </style>
+    <div id="html">
+        <div class="skin">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose">
+            </div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="mouth">
+                <div class="up">
+                    <div class="lip left"></div>
+                    <div class="lip right"></div>
+                </div>
+                <div class="down">
+                    <div class="yuan1">
+                        <div class="yuan2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="test.js"></script>
+</body>
+
+</html>
