@@ -189,17 +189,65 @@ body {
     transform: translateX(150px)
 }
 `
-let n = 0
-demo.innerHTML = string.substring(0, n)
-demo2.innerText = string.substring(0, n)
-
-let id = setInterval(() => {
-    n++
-    if (n > string.length) {
-        window.clearInterval(id)
-    }
-
-    demo.innerHTML = string.substring(0, n)
-    demo2.innerText = string.substring(0, n)
-    demo2.scrollTop = demo2.scrollHeight
-}, 0)
+const player = {
+    n: 0,
+    time: 10,
+    id: undefined,
+    elements: {
+        show: document.querySelector("#show"),
+        style: document.querySelector("#style"),
+    },
+    init: () => {
+        player.bindEvents();
+        player.play();
+    },
+    play: () => {
+        clearInterval(player.id);
+        player.id = setInterval(player.Run, player.time);
+    },
+    Run: () => {
+        if (player.n < string.length) {
+            player.n += 1;
+            player.elements.show.innerText = string.substring(0, player.n);
+            player.elements.style.innerHTML = string.substring(0, player.n);
+            player.elements.show.scrollTop = player.elements.show.scrollHeight;
+        } else {
+            return;
+        }
+    },
+    stop: () => {
+        clearInterval(player.id);
+    },
+    slow: () => {
+        player.time = 100;
+        player.play();
+    },
+    normal: () => {
+        player.time = 50;
+        player.play();
+    },
+    fast: () => {
+        player.time = 0;
+        player.play();
+    },
+    replay: () => {
+        player.time = 10;
+        player.n = 0;
+        player.play();
+    },
+    events: {
+        "#slowBtn": "slow",
+        "#stopBtn": "stop",
+        "#playBtn": "play",
+        "#normalBtn": "normal",
+        "#fastBtn": "fast",
+        "#replayBtn": "replay",
+    },
+    bindEvents: () => {
+        for (let key in player.events) {
+            let eventsValue = player.events[key];
+            document.querySelector(key).onclick = player[eventsValue];
+        }
+    },
+};
+player.init();
