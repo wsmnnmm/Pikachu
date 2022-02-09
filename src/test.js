@@ -139,7 +139,7 @@ body {
 .mouth .up::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: -1px;
     width: 10px;
     height: 10px;
     left: 50%;
