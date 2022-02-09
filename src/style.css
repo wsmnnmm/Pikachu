@@ -59,10 +59,8 @@ body {
     position: absolute;
     top: 1px;
     left: 6px;
-
+    animation: .5s heart infinite alternate-reverse;
 }
-
-
 
 .mouth {
     width: 200px;
@@ -83,7 +81,7 @@ body {
     border-top: none;
     margin-left: -40px;
     background: #ffe600;
-    z-index: 1;
+    z-index: 5;
 }
 
 .mouth .up .lip.left {
@@ -121,16 +119,16 @@ body {
     overflow: hidden;
 }
 
-.mouth .down .yuan1::after {
+.mouth .up::after {
     content: '';
     position: absolute;
-    bottom: 110px;
+    top: 0;
     width: 10px;
     height: 10px;
     left: 50%;
     margin-left: -5px;
     background: #ffe600;
-    z-index: 3;
+    z-index: 6;
 }
 
 .mouth .down .yuan2 {
@@ -163,4 +161,83 @@ body {
 
 .face.right {
     transform: translateX(150px)
+}
+
+@keyframes eye {
+    0% {
+        top: 2px;
+        left: 4px;
+    }
+
+    12.5% {
+        top: 1px;
+        left: 6px;
+    }
+
+    25% {
+        top: 0px;
+        left: 8px;
+    }
+
+    37.5% {
+        top: -1px;
+        left: 10px;
+    }
+
+    50% {
+        top: -2px;
+        left: 12px;
+    }
+
+    62.5% {
+        top: -1px;
+        left: 14px;
+    }
+
+    75% {
+        top: 0px;
+        left: 16px;
+    }
+
+    87.5% {
+        top: 1px;
+        left: 18px;
+    }
+
+    100% {
+        top: 2px;
+        left: 20px;
+    }
+}
+
+.eye::after {
+    animation: 1s eye infinite alternate;
+}
+
+.mouth:hover>.down {
+    animation: 1s down alternate forwards;
+}
+
+.nose {
+    animation: wave 1s infinite linear alternate;
+}
+
+@keyframes down {
+    0% {
+        height: 120px;
+    }
+
+    100% {
+        height: 0;
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    100% {
+        transform: rotate(-15deg);
+    }
 }
